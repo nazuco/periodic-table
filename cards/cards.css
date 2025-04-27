@@ -1,0 +1,499 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Permanent+Marker&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+body.dark-mode {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+* {
+  box-sizing: border-box;
+  font-family: "Permanent Marker", cursive;
+  user-select: none;
+}
+body {
+  background-color: rgb(0, 0, 0);
+  color: black;
+  transition: background-color 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Category buttons container */
+#category-buttons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Metals container (left-aligned) */
+.metals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* Nonmetals container (right-aligned) */
+.nonmetals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* Transition buttons container */
+#transition-buttons {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+.transition-button {
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  -webkit-clip-path: polygon(
+    0 0,
+    0 0,
+    100% 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0 100%
+  );
+  clip-path: polygon(
+    0 0,
+    0 0,
+    100% 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0 100%
+  );
+  height: 40px;
+  font-size: 0.7rem;
+  line-height: 14px;
+  letter-spacing: 1.2px;
+  transition: 0.2s 0.1s;
+  background-image: linear-gradient(90deg, #1c1c1c, rgba(0, 255, 255, 0.5));
+  border: 2px solid rgb(0, 255, 255);
+  overflow: hidden;
+}
+
+.transition-button:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.element {
+  width: 120px;
+  height: 160px;
+  box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.5);
+  border: 1px solid rgba(127, 255, 255, 0.25);
+  text-align: center;
+  line-height: normal;
+  cursor: default;
+  position: relative;
+  background-color: rgba(0, 127, 127, 0.5);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.element:hover {
+  box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
+  border: 1px solid rgba(127, 255, 255, 0.75);
+  transform: scale(1.05);
+}
+
+/* Element number */
+.element .number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: rgba(127, 255, 255, 0.75);
+}
+
+.element .symbol {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 12px rgba(0, 255, 255, 1);
+}
+
+/* Element details */
+.element .details {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  color: rgba(127, 255, 255, 0.75);
+}
+
+#rectangle {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  width: 350px;
+  height: 100px;
+  background: rgb(0, 255, 255);
+}
+
+#rectangle1 {
+  width: 218px;
+  height: 310px;
+  background: rgb(0, 255, 255);
+}
+
+#rectangle2 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 155px;
+  height: 240px;
+  background: rgb(0, 255, 255);
+}
+
+#triangle-topright {
+  position: absolute;
+  top: 240px;
+  right: 0px;
+  width: 55px;
+  height: 10px;
+  border-top: 100px solid rgb(0, 255, 255);
+  border-left: 100px solid transparent;
+}
+
+#triangle-topleft {
+  width: 118px;
+  height: 20px;
+  border-top: 100px solid rgb(0, 255, 255);
+  border-right: 100px solid transparent;
+}
+#rec-buttom {
+  position: absolute;
+  bottom: 0px;
+  left: 400px;
+  width: 1200px;
+  height: 10px;
+  background: rgb(0, 255, 255);
+}
+#rec-lift {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 30px;
+  height: 500px;
+  background: rgb(0, 255, 255);
+}
+#rec-right {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+  width: 30px;
+  height: 500px;
+  background: rgb(0, 255, 255);
+}
+
+#rec-top {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  width: 1200px;
+  height: 10px;
+  background: rgb(0, 255, 255);
+}
+#triangle-bottomleft {
+  position: absolute;
+  bottom: -10px;
+  left: 340px;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid rgb(0, 255, 255);
+  border-right: 100px solid transparent;
+  border-left: 0px solid transparent;
+}
+#triangle-bottomright {
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  border-bottom: 100px solid rgb(0, 255, 255);
+  border-left: 100px solid transparent;
+}
+/* Dropdown button */
+.category-dropdown-label {
+  position: relative;
+  left: 0px;
+  height: 35px;
+  padding: 0 20px;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(0, 255, 255);
+
+  white-space: nowrap;
+  transition: all 0.05s linear;
+  color: rgb(0, 0, 0);
+  font-family: inherit;
+}
+
+.category-dropdown-label:before,
+.category-dropdown-label:after {
+  content: "";
+  position: absolute;
+  background: rgb(0, 255, 255);
+  transition: all 0.2s linear;
+}
+
+.category-dropdown-label:before {
+  width: calc(100% + 6px);
+  height: calc(100% - 16px);
+  top: 8px;
+  left: -3px;
+}
+
+.category-dropdown-label:after {
+  width: calc(100% - 16px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: 8px;
+}
+
+.category-dropdown-label:hover {
+  cursor: crosshair;
+}
+
+.category-dropdown-label:active {
+  transform: scale(0.95);
+}
+
+.category-dropdown-label:hover:before {
+  height: calc(100% - 32px);
+  top: 16px;
+}
+
+.category-dropdown-label:hover:after {
+  width: calc(100% - 32px);
+  left: 16px;
+}
+
+.category-dropdown-label span {
+  font-size: 15px;
+  z-index: 3;
+  position: relative;
+  font-weight: 600;
+}
+
+/* Dropdown container */
+.category-dropdown {
+  overflow: hidden;
+  max-height: 0;
+
+  transition: max-height 0.4s ease-in-out;
+}
+.category-button {
+  position: relative;
+  left: 0px;
+  height: 35px;
+  padding: 0 20px;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(0, 255, 255);
+
+  white-space: nowrap;
+  transition: all 0.05s linear;
+  color: rgb(0, 0, 0); /* Updated text color for better contrast */
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  text-align: left;
+  width: 95%;
+  margin-bottom: 8px; /* Added spacing between buttons */
+}
+
+.category-button:last-child {
+  margin-bottom: 0; /* Removes margin from last button */
+}
+
+.category-button span {
+  position: relative;
+  z-index: 3;
+}
+
+.category-button:before,
+.category-button:after {
+  content: "";
+  position: absolute;
+  background: rgb(1, 255, 255);
+  transition: all 0.2s linear;
+}
+
+.category-button:before {
+  width: calc(100% + 6px);
+  height: calc(100% - 16px);
+  top: 8px;
+  left: -3px;
+}
+
+.category-button:after {
+  width: calc(100% - 16px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: 8px;
+}
+
+.category-button:hover {
+  cursor: crosshair;
+}
+
+.category-button:active {
+  transform: scale(0.95);
+}
+
+.category-button:hover:before {
+  height: calc(100% - 32px);
+  top: 16px;
+}
+
+.category-button:hover:after {
+  width: calc(100% - 32px);
+  left: 16px;
+} /* From Uiverse.io by JaydipPrajapati1910 */
+.btn-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.btn-container i {
+  display: inline-block;
+  position: relative;
+  top: -9px;
+}
+
+label {
+  font-size: 13px;
+  color: #424242;
+  font-weight: 500;
+}
+
+.btn-color-mode-switch {
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner {
+  margin: 0px;
+  width: 140px;
+  height: 30px;
+  background: #000000;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+  display: block;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+  content: attr(data-off);
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  top: 7px;
+  right: 20px;
+}
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+  content: attr(data-on);
+  width: 70px;
+  height: 16px;
+  background: #00ffff;
+  border-radius: 26px;
+  position: absolute;
+  left: 68px;
+  top: 2px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 6px -2px #111;
+  padding: 5px 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"] {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  margin: 0px;
+}
+
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner {
+  background: #e6e6e6;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner:after {
+  content: attr(data-off);
+  left: 2px;
+  background: #00ffff;
+  color: #000000;
+}
+
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner:before {
+  content: attr(data-on);
+  right: 20px;
+  left: auto;
+  color: rgba(156, 145, 129, 0.904);
+}
+
+#trapezoid {
+  position: absolute;
+  top: 10px; /* Move it to the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  background: rgb(0, 255, 255);
+  clip-path: polygon(20% 100%, 80% 100%, 100% 0%, 0% 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

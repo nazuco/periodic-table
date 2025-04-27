@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/cards/cards.css" />
+    <title>3D Periodic Table</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="category-buttons"></div>
+    <div id="transition-buttons">
+      <button class="transition-button" data-arrangement="table">Tavola</button>
+      <button class="transition-button" data-arrangement="sphere">Sfera</button>
+      <button class="transition-button" data-arrangement="helix">Helice</button>
+    </div>
+
+    <div id="rectangle"></div>
+    <div id="rectangle1"></div>
+    <div id="rectangle2"></div>
+    <div id="triangle-topleft"></div>
+
+    <div id="trapezoid">
+      <div class="btn-container">
+        <label class="switch btn-color-mode-switch">
+          <input value="1" id="color_mode" name="color_mode" type="checkbox" />
+          <label
+            class="btn-color-mode-switch-inner"
+            data-off="Light"
+            data-on="Dark"
+            for="color_mode"
+          ></label>
+        </label>
+      </div>
+    </div>
+
+    <div id="rec-buttom"></div>
+    <div id="rec-top"></div>
+    <div id="rec-lift"></div>
+    <div id="rec-right"></div>
+    <div id="triangle-topright"></div>
+    <div id="triangle-bottomleft"></div>
+    <div id="triangle-bottomright"></div>
+
+    <script type="module" src="/cards/cards.js"></script>
+  </body>
+</html>
